@@ -1,0 +1,29 @@
+<body  *ngIf="c !== ''"  >
+     <span mat-dialog-close mat-dialog-close="true" class="material-icons" style="margin-left:98%;">highlight_off</span>
+
+     <h3 class="h3" class="form-group text-center">consulter votre reservation</h3>
+          <div class="m" mat-dialog-content><span class="material-icons"> perm_identity </span> {{listUne._id}} </div>
+          <div class="m" mat-dialog-content> <span class="material-icons"> local_taxi </span> {{listUne.matricule}} </div>
+          <div class="m" mat-dialog-content> <span class="material-icons"> room </span> {{listUne.name}} </div>
+          <div class="m" mat-dialog-content> <span class="material-icons">euro_symbol</span>{{listUne.Tpark}} </div>
+          <div class="m" mat-dialog-content> <span class="material-icons"> date_range </span> {{listUne.dateE}} ~
+               {{listUne.timeE}} </div>
+          <div class="m" mat-dialog-content> <span class="material-icons">date_range</span> {{listUne.dateS}} ~ {{listUne.timeS}}
+          </div>
+
+          <div class="m" class="form-group text-center">
+               <button class="mr-2" mat-dialog-close mat-dialog-close="true" (click)="deleteReservation()">delete
+                    reservation</button>
+
+               <button class="mr-2" mat-dialog-close mat-dialog-close="true" routerLink="/reserve">update</button>
+
+          </div>
+
+</body>
+<div *ngIf="c === ''" class="pasdereser" >
+     <span mat-dialog-close mat-dialog-close="true" class="material-icons" style="margin-left:93%;">highlight_off</span>
+     <h3 class="form-group text-center">reserver d'abbord SVP</h3>
+     <div class="m" class="form-group text-center">
+     <button  mat-dialog-close mat-dialog-close="true" style="margin-top: 15px;" routerLink="/reserve">reserver</button>
+     </div>
+</div>

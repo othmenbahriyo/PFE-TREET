@@ -1,0 +1,237 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dash">Dashboard</a>
+      <a mat-list-item routerLink="/table">tableau</a>
+      <a mat-list-item routerLink="/gpark">parking</a>
+      <a mat-list-item routerLink="/ad">add admin</a>
+      <a mat-list-item routerLink="/mp">add place</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+
+    <div class="features-boxed">
+      <div class="container">
+        <div class="intro">
+          <h2 class="text-center">Gestion des parking</h2>
+          <p class="text-center"></p>
+        </div>
+
+        <div class="features-boxed">
+          <div class="container">
+
+            <div class="row justify-content-center features">
+              <div class="col-sm-6 col-md-5 col-lg-4 item" style="font-size: 100px;">
+                <div class="box" style="height: 200px;"><i class="fa fa-map-marker icon"></i>
+                  <i class="fa fa-map-marker icon"></i>
+                  <i class="fa fa-map-marker icon"></i>
+                  <h3 class="name" style="height: 50PX;">NB PARKING </h3>
+                  <p class="description" style="font-size: 80px;">{{cmp}}</p>
+
+                  <p class="description"></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location"
+              data-type="text">Location</span></label>
+
+          <select name="location_id" id="location_id" class="form-control form-control-lg"
+            (change)="selectChangeHandler($event)">
+            <option></option>
+            <option class="form-control form-control-lg" *ngFor="let m of marker" [ngValue]="m">{{m.name}}</option>
+
+          </select>
+        </div>
+
+        <div class="row justify-content-center features">
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+
+            <div class="box">
+              <h3 class="name">NB de voitures dans le parking</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.vp}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+            <div class="box">
+              <h3 class="name">NB de place vides</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.pv}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+            <div class="box">
+              <h3 class="name">nb de place / le parking couvert</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppc}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+            <div class="box">
+              <h3 class="name">NB de voitures /le parking pro</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppp}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+            <div class="box">
+              <h3 class="name">NB de place/park normal</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppn}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-4 item">
+            <div class="box">
+              <h3 class="name">nb de reclamation</h3>
+              <ng-container *ngFor="let p of parking ">
+
+                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.d}} </strong>
+                </p>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <section id="contact">
+      <div class="container">
+        <div class="well well-sm">
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-7">
+            <agm-map>
+              <agm-marker *ngFor="let m of marker; let i = index" zoom="zoom" [latitude]="m.latitude"
+                [longitude]="m.latitude" [markerDraggable]="m.draggable"></agm-marker>
+            </agm-map>
+          </div>
+
+          <div class="col-md-5">
+            <div class="card text-center">
+              <div class="card-header">
+                <h4><strong>ajouter un parking</strong></h4>
+              </div>
+              <form #parkForm="ngForm">
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">location</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="markers.name"
+                    name="name">
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">latitude</label>
+                  <input type="text" class="form-control" [(ngModel)]="markers.latitude" name="latitude">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">longitude</label>
+                  <input type="text" class="form-control" [(ngModel)]="markers.longitude" name="longitude">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">price</label>
+                  <input type="text" class="form-control" [(ngModel)]="markers.price" name="price">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">NB place</label>
+                  <input type="text" class="form-control" [(ngModel)]="markers.nbplace" name="nbplace">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">cap</label>
+                  <input type="text" class="form-control" [(ngModel)]="t" name="capteur">
+                </div>
+        
+                <div class="form-group" >
+                  <label >id</label>
+                  <input   class="form-control" [(ngModel)]="markers._id" name="_id"  >
+
+                </div>
+
+
+                <button class="btn btn-custom right" type="button" (click)="resetForm(parkForm)">Reset</button>
+
+                <button class="btn btn-custom right" type="button" (click)="saveParking()">add</button>
+
+                <button class="btn btn-custom right" type="submit" (click)="onSubmit(parkForm)">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col">name</th>
+          <th scope="col">longitude</th>
+          <th scope="col">latitude</th>
+          <th scope="col">price</th>
+          <th scope="col">place max</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of marker ">
+          <td>{{m.name}}</td>
+          <td>{{m.longitude}}</td>
+          <td>{{m.latitude}}</td>
+          <td>{{m.price}}</td>
+          <td>{{m.nbplace}}</td>
+          <td>
+            <a class="action-btn" (click)="onEdit(m)">
+              <i class="material-icons">edit</i>
+            </a>
+            <a class="action-btn" (click)="onDeletee(m._id)">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </mat-sidenav-content>
+</mat-sidenav-container>
