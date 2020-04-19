@@ -65,6 +65,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgTempusdominusBootstrapModule } from 'ngx-tempusdominus-bootstrap';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { AddParkComponent } from './add-park/add-park.component';
 
 
 
@@ -94,6 +95,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     ChComponent,
     ConsulteResComponent,
     FooterComponent,
+    AddParkComponent,
 
   ],
   entryComponents: [ConsulteResComponent],

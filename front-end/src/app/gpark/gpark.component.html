@@ -54,8 +54,7 @@
           <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location"
               data-type="text">Location</span></label>
 
-          <select name="location_id" id="location_id" class="form-control form-control-lg"
-            (change)="selectChangeHandler($event)">
+          <select name="location_id" id="location_id" class="form-control form-control-lg">
             <option></option>
             <option class="form-control form-control-lg" *ngFor="let m of marker" [ngValue]="m">{{m.name}}</option>
 
@@ -67,9 +66,9 @@
 
             <div class="box">
               <h3 class="name">NB de voitures dans le parking</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container >
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.vp}} </strong>
+                <p class="description" style="font-size: 70px;"><strong></strong>
                 </p>
               </ng-container>
             </div>
@@ -77,9 +76,9 @@
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
               <h3 class="name">NB de place vides</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container >
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.pv}} </strong>
+                <p class="description" style="font-size: 70px;" ><strong></strong>
                 </p>
               </ng-container>
             </div>
@@ -87,9 +86,9 @@
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
               <h3 class="name">nb de place / le parking couvert</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container  >
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppc}} </strong>
+                <p class="description" style="font-size: 70px;" ><strong> </strong>
                 </p>
               </ng-container>
             </div>
@@ -97,9 +96,9 @@
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
               <h3 class="name">NB de voitures /le parking pro</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container>
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppp}} </strong>
+                <p class="description" style="font-size: 70px;" ><strong> </strong>
                 </p>
               </ng-container>
             </div>
@@ -107,9 +106,9 @@
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
               <h3 class="name">NB de place/park normal</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container >
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.ppn}} </strong>
+                <p class="description" style="font-size: 70px;" ><strong> </strong>
                 </p>
               </ng-container>
             </div>
@@ -117,9 +116,9 @@
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
               <h3 class="name">nb de reclamation</h3>
-              <ng-container *ngFor="let p of parking ">
+              <ng-container >
 
-                <p class="description" style="font-size: 70px;" *ngIf="selected === p.name"><strong>{{p.d}} </strong>
+                <p class="description" style="font-size: 70px;"><strong> </strong>
                 </p>
               </ng-container>
             </div>
@@ -133,105 +132,8 @@
 
     <!------ Include the above in your HEAD tag ---------->
 
-    <section id="contact">
-      <div class="container">
-        <div class="well well-sm">
+  
 
-        </div>
-
-        <div class="row">
-          <div class="col-md-7">
-            <agm-map>
-              <agm-marker *ngFor="let m of marker; let i = index" zoom="zoom" [latitude]="m.latitude"
-                [longitude]="m.latitude" [markerDraggable]="m.draggable"></agm-marker>
-            </agm-map>
-          </div>
-
-          <div class="col-md-5">
-            <div class="card text-center">
-              <div class="card-header">
-                <h4><strong>ajouter un parking</strong></h4>
-              </div>
-              <form #parkForm="ngForm">
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">location</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)]="markers.name"
-                    name="name">
-
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">latitude</label>
-                  <input type="text" class="form-control" [(ngModel)]="markers.latitude" name="latitude">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">longitude</label>
-                  <input type="text" class="form-control" [(ngModel)]="markers.longitude" name="longitude">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">price</label>
-                  <input type="text" class="form-control" [(ngModel)]="markers.price" name="price">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">NB place</label>
-                  <input type="text" class="form-control" [(ngModel)]="markers.nbplace" name="nbplace">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">cap</label>
-                  <input type="text" class="form-control" [(ngModel)]="t" name="capteur">
-                </div>
-        
-                <div class="form-group" >
-                  <label >id</label>
-                  <input   class="form-control" [(ngModel)]="markers._id" name="_id"  >
-
-                </div>
-
-
-                <button class="btn btn-custom right" type="button" (click)="resetForm(parkForm)">Reset</button>
-
-                <button class="btn btn-custom right" type="button" (click)="saveParking()">add</button>
-
-                <button class="btn btn-custom right" type="submit" (click)="onSubmit(parkForm)">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <table class="table">
-      <thead>
-        <tr>
-
-          <th scope="col">name</th>
-          <th scope="col">longitude</th>
-          <th scope="col">latitude</th>
-          <th scope="col">price</th>
-          <th scope="col">place max</th>
-
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let m of marker ">
-          <td>{{m.name}}</td>
-          <td>{{m.longitude}}</td>
-          <td>{{m.latitude}}</td>
-          <td>{{m.price}}</td>
-          <td>{{m.nbplace}}</td>
-          <td>
-            <a class="action-btn" (click)="onEdit(m)">
-              <i class="material-icons">edit</i>
-            </a>
-            <a class="action-btn" (click)="onDeletee(m._id)">
-              <i class="material-icons">delete</i>
-            </a>
-          </td>
-
-        </tr>
-
-      </tbody>
-    </table>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>

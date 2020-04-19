@@ -20,6 +20,8 @@ import { GmapsComponent } from './gmaps/gmaps.component';
 import { ChComponent } from './ch/ch.component';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddParkComponent } from './add-park/add-park.component';
+
 
 
 
@@ -43,7 +45,7 @@ const routes: Routes = [
   {path: 'pay', component: PaimentComponent, canActivate: [AuthGuard]},
   {path: 'map', component: MapComponent},
   {path: 'ch', component: ChComponent, canActivate: [AuthGuard]},
-
+  {path: 'ap', component: AddParkComponent},
   {path: 'ad', component: AdminEventsComponent, canActivate: [AdminGuard ]}
 ];
 
