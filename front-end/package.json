@@ -28,6 +28,8 @@
     "@angular/router": "~9.0.0",
     "@auth0/angular-jwt": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^5.2.2",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@types/hammerjs": "^2.0.36",
     "@types/socket.io": "^2.1.4",
     "admin-lte": "^3.0.2",

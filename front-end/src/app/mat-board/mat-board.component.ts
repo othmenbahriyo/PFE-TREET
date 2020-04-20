@@ -70,7 +70,7 @@ export class MatBoardComponent implements OnInit, OnDestroy {
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: this.message , label: 'nb voiture / jours' }
+    { data: [5 , 6 , 45 , 4 , 8] , label: 'nb voiture / jours' }
   ];
   constructor(private breakpointObserver: BreakpointObserver, private chatService: KafkaService) {
     monkeyPatchChartJsTooltip();

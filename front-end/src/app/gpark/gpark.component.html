@@ -41,6 +41,7 @@
                   <i class="fa fa-map-marker icon"></i>
                   <i class="fa fa-map-marker icon"></i>
                   <h3 class="name" style="height: 50PX;">NB PARKING </h3>
+                  
                   <p class="description" style="font-size: 80px;">{{cmp}}</p>
 
                   <p class="description"></p>
@@ -55,13 +56,13 @@
           <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location"
               data-type="text">Location</span></label>
 
-          <select name="location_id" id="location_id" class="form-control form-control-lg">
+          <select name="location_id" id="location_id" class="form-control form-control-lg" (change)="filterChanged($event.target.value)" class="form-control form-control-lg" ([ngModel])="selected" >
             <option></option>
-            <option class="form-control form-control-lg" *ngFor="let m of marker" [ngValue]="m">{{m.name}}</option>
+            <option class="form-control form-control-lg" *ngFor="let m of marker"  [ngValue]="m">{{m.name}}</option>
 
           </select>
         </div>
-
+        
         <div class="row justify-content-center features">
           <div class="col-sm-6 col-md-5 col-lg-4 item">
 
@@ -69,7 +70,7 @@
               <h3 class="name">NB de voitures dans le parking</h3>
               <ng-container >
 
-                <p class="description" style="font-size: 70px;"><strong></strong>
+                <p class="description" style="font-size: 70px;"><strong> {{m}} </strong>
                 </p>
               </ng-container>
             </div>
@@ -79,7 +80,7 @@
               <h3 class="name">NB de place vides</h3>
               <ng-container >
 
-                <p class="description" style="font-size: 70px;" ><strong></strong>
+                <p class="description" style="font-size: 70px;" ><strong> {{nbv}} </strong>
                 </p>
               </ng-container>
             </div>
@@ -89,7 +90,7 @@
               <h3 class="name">nb de place / le parking couvert</h3>
               <ng-container  >
 
-                <p class="description" style="font-size: 70px;" ><strong> </strong>
+                <p class="description" style="font-size: 70px;" ><strong> {{nbc}} </strong>
                 </p>
               </ng-container>
             </div>
@@ -99,7 +100,7 @@
               <h3 class="name">NB de voitures /le parking pro</h3>
               <ng-container>
 
-                <p class="description" style="font-size: 70px;" ><strong> </strong>
+                <p class="description" style="font-size: 70px;" ><strong> {{nbp}} </strong>
                 </p>
               </ng-container>
             </div>
@@ -109,21 +110,22 @@
               <h3 class="name">NB de place/park normal</h3>
               <ng-container >
 
-                <p class="description" style="font-size: 70px;" ><strong> </strong>
+                <p class="description" style="font-size: 70px;" ><strong> {{nbn}} </strong>
                 </p>
               </ng-container>
             </div>
           </div>
           <div class="col-sm-6 col-md-5 col-lg-4 item">
             <div class="box">
-              <h3 class="name">nb de reclamation</h3>
+              <h3 class="name">nobre de places totale</h3>
               <ng-container >
 
-                <p class="description" style="font-size: 70px;"><strong> </strong>
+                <p class="description" style="font-size: 70px;"><strong> {{nbt}} </strong>
                 </p>
               </ng-container>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

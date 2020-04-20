@@ -70,8 +70,4 @@ export class GmapsComponent implements OnInit {
         this.capteur = '';
   }}
 }
-
-
 }
-
-

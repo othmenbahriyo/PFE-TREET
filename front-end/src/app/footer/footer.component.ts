@@ -16,7 +16,10 @@ export class FooterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.mytime.getTime() - this.time.getTime() );
+    if (this.mytime.getDay() === 0) {
+      console.log('rrr');
+}
+    console.log( 'fggf', this.mytime.getDay() );
   }
 
 
