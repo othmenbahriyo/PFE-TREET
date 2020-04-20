@@ -1,0 +1,35 @@
+{
+    "navbar": {
+        "Home": "Accueil ",
+        "RESERVATION": "RÉSERVATION",
+        "MAP": "CARTE",
+        "PRICE": "PRIX",
+        "CONTACT": "CONTACTER",
+        "CHAT": "BAVARDER",
+        "ADMIN":"ADMIN",
+        "CONSULTER":"CONSULTER",
+        "Login": "S'identifier",
+        "Logout": "déconnecter"
+
+    },
+    "HOME": {
+        "welcome":"bienvenu",
+        "Book": "Réservez votre place de parkinge",
+        "location": "Choisissez l'emplacement, la date, l'heure et une place de parking!",
+        "Location": "Emplacement",
+        "find": "Vous ne trouvez pas l'emplacement?",
+        "Matricule": "Matricule",
+        "type": "Type de stationnement",
+        "view": "Voir la carte",
+        "entre": "Date d'entrée &amp;  heure",
+        "exit": "Date de sortie &amp;  heure",
+        "condition": "Date de sortie &amp; heure doit être supérieur à la date d'entrée  &amp; heure.",
+        "about": "À propos de nous",
+        "def": "La société Tree Tronix Technology possède une vaste expérience dans le développement de systèmes logiciels pour la construction navale, la construction de machines, les télécommunications, la médecine, etc.La société propose les services dans les domaines suivants: Conception de bases de données pour des systèmes de toute complexité, en utilisant le produit CASE Oracle Designer. La base de données utilisée de base - Oracle Database. L'application de toute autre base de données est possible. Développement des systèmes d'information en utilisant la base de données (Oracle, MySQL et etc.) Programmation (Java, C ++, Visual Basic, Perl et etc.) Création de sites WEB et de portails Internet, qui ont utilisé la base de données Développement de systèmes analytiques avec la technologie OLAP. La technologie OLAP permet de faire l'analyse rapide de grands volumes d'informations à un minimum de dépenses. Services de conseil dans les technologies de l'information. L'analyse de l'activité des entreprises pour l'introduction des technologies de l'information. Développement et description des processus d'affaires de l'entreprise pour le traitement, l'analyse et la poursuite de l'application des informations. L'organisation de l'introduction des propres produits de l'entreprise de développement et des produits d'autres sociétés également. Externalisation. C'est la réalisation de travaux sur l'organisation, la gestion et le développement des systèmes d'information des entreprises. L'externalisation réduit considérablement les dépenses pour les technologies de l'information en raison de la réduction des frais des experts hautement rémunérés du département informatique de l'entreprise. Dans notre entreprise, les experts ont une vaste expérience de la création, de l'introduction et du support de divers systèmes matériels et logiciels. Nous serons heureux de coopérer avec vous.",
+        "Start":"Début",
+        "Reservations": "Réservations",
+        "Locations": "Locations",
+        "Price": "Prix",
+        "Contact": "NOUS CONTACTER"
+    }
+}

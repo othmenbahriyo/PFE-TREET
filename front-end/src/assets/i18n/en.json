@@ -1,0 +1,35 @@
+{
+    "navbar": {
+        "Home": "Home ",
+        "RESERVATION": "BOOKING",
+        "MAP": "MAP",
+        "PRICE": "PRICE",
+        "CONTACT": "CONTACT US",
+        "CHAT": "CHAT",
+        "ADMIN":"ADMIN",
+        "CONSULTER":"CONSULT",
+        "Login": "Login",
+        "Logout": "Logout"
+
+    },
+    "HOME": {
+        "welcome":"WELCOME",
+        "Book": "Book your parking space",
+        "location": "Choose location, date, time and a parking spot!",
+        "Location": "Location",
+        "find": "Can't find the location?",
+        "Matricule": "Registration number",
+        "type": "Type of Parking",
+        "view": "View Map",
+        "entre": "Entry date &amp; time",
+        "exit": "Exit date &amp; time",
+        "condition": "Exit date &amp; time must be greater than entry date &amp; time.",
+        "about": "About Us",
+        "def": "ImageThe Tree Tronix Technology company has a wide experience in developping software systems for shipbuilding, machine-building, telecommunications, medicine and etc The company offers the services in following areas: Designing databases for systems of any complexity, using CASE product Oracle Designer. The basic used database - Oracle Database. Application of any other databases is possible. Development of the information systems using database (  Oracle, MySQL and etc ) Programming  ( Java, C ++ , Visual Basic, Perl  and etc )  Creating WEB-sites and Internet-portals, which used  database Development of analytical systems with using OLAP technology. OLAP technology allows to make the fast analysis of great volumes of the information at a minimum of expenses.  Consulting services in the information technologies. The analysis of activity of the enterprises for introduction of information technologies. Development and the description business-processes of the enterprise for processing, the analysis and the further application of the information. The organization of introduction of the own development enterprise products, and products of other companies also. Outsourcing. It is realization of works on the organization, management and development of information systems of the enterprises. Outsourcing considerably reduces expenses for information technologies due to reduction of charges of highly paid experts in IT department of the enterprise In our company the experts have wide experience of creation, introduction and support of various hardware and software systems are working. We shall be glad to cooperate with you.",
+        "Start":"Start",
+        "Reservations": "Reservations",
+        "Locations": "Rentals",
+        "Price": "Price",
+        "Contact": "Contact Us"
+    }
+}

@@ -6,11 +6,11 @@
 		
 		
 		<div class="container" >
-			<h3  style="text-transform: uppercase;" ><span  data-type="text">welcom {{user}}</span></h3>
+			<h3  style="text-transform: uppercase;" ><span  data-type="text"> {{'HOME.welcome' | translate }} {{user}}   </span></h3>
 			
-			<h1 class="h1"><span class="wc-editable" data-pk="ws_home_slide_title_1" data-type="text">Book your parking space</span></h1>
+			<h1 class="h1"><span class="wc-editable" data-pk="ws_home_slide_title_1" data-type="text">{{'HOME.Book' | translate }}</span></h1>
 
-			<div class="hero-text-desc"><span class="wc-editable" data-pk="ws_home_slide_desc_1" data-type="plaintext">Choose location, date, time and a parking spot!</span></div>
+			<div class="hero-text-desc"><span class="wc-editable" data-pk="ws_home_slide_desc_1" data-type="plaintext">{{'HOME.location' | translate }}</span></div>
 			
             <div id="pjCpContainer"><div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-xs-12">
@@ -19,7 +19,7 @@
                             <div id="pjCpCalendarLocale" style="display: none;" data-months="January_February_March_April_May_June_July_August_September_October_November_December" data-days="Su_Mo_Tu_We_Th_Fr_Sa"></div>
                             
                             <div class="form-group">
-                                <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">Location</span></label>
+                                <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Location' | translate }}</span></label>
                                     
                                 <select name="location_id" style="height:40px;" id="location_id" class="form-control" [(ngModel)]="reserv.name" name="name" formControlName="name" >
                                     <option value=""> </option>
@@ -29,14 +29,14 @@
                                                         <p>
                                         <i class="glyphicon glyphicon-map-marker"></i>
                                         
-                                        <span class="wc-editable" data-pk="ws_cannot_find_location" data-type="text">Can't find the location?</span> <a routerLink="/pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text">View Map</span></a>
+                                        <span class="wc-editable" data-pk="ws_cannot_find_location" data-type="text">{{'HOME.find' | translate }}</span> <a routerLink="/pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text">{{'HOME.view' | translate }}</span></a>
 									</p>
 									<div>
-										<label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">Matricule</span></label>
+										<label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Matricule' | translate }}</span></label>
 										<input  class="form-control " style="height:40px;"  [(ngModel)]="reserv.matricule" formControlName="matricule" placeholder="198 TUN 1254" name="matricule" > 
 									</div>
                                                     </div>
-                                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">Type of Parking</span></label>
+                                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.type' | translate }}</span></label>
                                                     <select  name="location_id" id="location_id" class="form-control " style="height:40px;" [(ngModel)]="reserv.Tpark" name="Tpark" formControlName="Tpark">
                                     
                                                         <option value="normal_10$"  >normal parking (10$/h)</option>
@@ -47,7 +47,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-xs-12">
                                     <div class="dateTimePick">
-                                        <label style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">Entry date &amp; time</span></label>
+                                        <label style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">{{'HOME.entre' | translate }}</span></label>
                                             
                                         <div class="row" >
                                             <div class="col-sm-6 col-xs-12" style="margin-top: 25px;">
@@ -80,7 +80,7 @@
             
                                 <div class="col-lg-6 col-xs-12">
                                     <div class="dateTimePick">
-                                        <label  style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">Exit date &amp; time</span></label>
+                                        <label  style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">{{'HOME.exit' | translate }}</span></label>
                                             
                                         <div class="row">
                                             <div class="col-sm-6 col-xs-12"  style="margin-top: 25px;">
@@ -117,7 +117,7 @@
 				<div class="form-group text-center">
 					<button type="submit"  (click)="saveCall()" class="btn btn-primary"><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action"  >Choose Your Space</span></button>
 
-					<p id="pjCpSearchErrorMsg" class="crError text-danger hidden">Exit date &amp; time must be greater than entry date &amp; time.</p>
+					<p id="pjCpSearchErrorMsg" class="crError text-danger hidden">{{'HOME.condition' | translate }}</p>
 				</div>
 			</form>
 		</div>			
@@ -129,23 +129,12 @@
 	<div class="section section-about" id="section-about">
 		<div class="section-head">
 			<div class="container cms-e-section">
-				<h2 class="h2"><span class="wc-editable" data-pk="ws_about_me_title" data-type="text"  >About Us</span></h2>
+				<h2 class="h2"><span class="wc-editable" data-pk="ws_about_me_title" data-type="text"  >{{'HOME.about' | translate }}</span></h2>
 
 	
 				<div class="row">
 					<div class="col-lg-10 col-lg-offset-1">
-						<div class="paragragh"><span class="wc-editable" data-pk="ws_about_me_desc" data-type="plaintext"> ImageThe "Tree Tronix Technology" company has a wide experience in developping software systems for shipbuilding, machine-building, telecommunications, medicine and etc.
-							The company offers the services in following areas:
-						   
-						   Designing databases for systems of any complexity, using CASE product Oracle Designer. The basic used database - Oracle Database. Application of any other databases is possible.
-						   Development of the information systems using database (  Oracle, MySQL and etc )
-						   Programming  ( Java, C ++ , Visual Basic, Perl  and etc )
-						   Creating WEB-sites and Internet-portals, which used  database
-						   Development of analytical systems with using OLAP technology. OLAP technology allows to make the fast analysis of great volumes of the information at a minimum of expenses.
-						   Consulting services in the information technologies. The analysis of activity of the enterprises for introduction of information technologies. Development and the description business-processes of the enterprise for processing, the analysis and the further application of the information. The organization of introduction of the own development enterprise products, and products of other companies also.
-						   Outsourcing. It is realization of works on the organization, management and development of information systems of the enterprises. Outsourcing considerably reduces expenses for information technologies due to reduction of charges of highly paid experts in IT department of the enterprise
-						   In our company the experts have wide experience of creation, introduction and support of various hardware and software systems are working.
-						   We shall be glad to cooperate with you.</span></div>
+						<div class="paragragh"><span class="wc-editable" data-pk="ws_about_me_desc" data-type="plaintext"> {{'HOME.def' | translate }}</span></div>
 					</div>
 				</div>
 			</div>
@@ -164,11 +153,11 @@
 	<div class="footer-nav">
 		<div class="container cms-e-section">
 			<ul>
-				<li><a routerLink="/map">Start</a></li>
-				<li><a routerLink="/reserve">Reservations</a></li>
-				<li><a routerLink="/pres">Locations</a></li>
-				<li><a routerLink="/price">Price</a></li>
-				<li><a routerLink="/contact">Contact Us</a></li>
+				<li><a routerLink="/map">{{'HOME.Start' | translate }}</a></li>
+				<li><a routerLink="/reserve">{{'HOME.Reservations' | translate }}</a></li>
+				<li><a routerLink="/pres">{{'HOME.Locations' | translate }}</a></li>
+				<li><a routerLink="/price">{{'HOME.Price' | translate }}</a></li>
+				<li><a routerLink="/contact"> {{'HOME.Contact' | translate }}</a></li>
 								</ul>
 		</div>
 	</div>

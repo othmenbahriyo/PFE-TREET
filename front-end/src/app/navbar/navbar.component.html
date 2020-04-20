@@ -7,34 +7,40 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="map">Home <span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="map"> {{'navbar.Home' | translate  }} <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="reserve">RESERVATION</a>
+          <a class="nav-link"  routerLink="reserve">{{'navbar.RESERVATION' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="pres">MAP</a>
+          <a class="nav-link"  routerLink="pres">{{'navbar.MAP' | translate }}</a>
         </li>
        <li class="nav-item">
-          <a class="nav-link" routerLink="price" >PRICE</a>
+          <a class="nav-link" routerLink="price" >{{'navbar.PRICE' | translate }}</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  routerLink="contact">CONTACT US</a>
+          <a class="nav-link"  routerLink="contact"> {{'navbar.CONTACT' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="auth.loggedIn()"  (click)="navigateToResource()">CHAT</a>
+          <a class="nav-link" *ngIf="auth.loggedIn()"  (click)="navigateToResource()" >{{'navbar.CHAT' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"   *ngIf="c()" routerLink="/admin" >ADMIN</a>
+          <a class="nav-link"   *ngIf="c()" routerLink="/admin"  >{{'navbar.ADMIN' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"     (click)="openDialog()" >CONSULTER</a>
+          <a class="nav-link"     (click)="openDialog()"  >{{'navbar.CONSULTER' | translate }}</a>
         </li>
 
+
         <li class="nav-item">
-          <a class="nav-link" *ngIf="!auth.loggedIn()"  routerLink="/login"   >Login</a>
-          <a class="nav-link" style="cursor:pointer" *ngIf="auth.loggedIn()" (click)="logoutUser()"  >Logout</a>
+          <a class="nav-link" *ngIf="!auth.loggedIn()"  routerLink="/login"   >{{'navbar.Login' | translate }}</a>
+          <a class="nav-link" style="cursor:pointer" *ngIf="auth.loggedIn()" (click)="logoutUser()"  >{{'navbar.Logout' | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <select (change)="filterChanged($event.target.value)" class="form-control " [value]='fr' ([ngModel])="selected" style="height: 40px; width: 75px; background-color: #B6B1B1; text-align: center;" >
+            <option *ngFor="let lang of translate.getLangs()" value="{{lang}}"> {{lang}} </option>
+          </select>
         </li>
         
       </ul>

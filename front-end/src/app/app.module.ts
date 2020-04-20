@@ -37,7 +37,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { GparkComponent } from './gpark/gpark.component';
 import { GmapsComponent } from './gmaps/gmaps.component';
 import { TableauComponent } from './tableau/tableau.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { NgxStripeModule } from 'ngx-stripe';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { NgxPayPalModule } from 'ngx-paypal';
@@ -66,9 +66,13 @@ import { NgTempusdominusBootstrapModule } from 'ngx-tempusdominus-bootstrap';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { AddParkComponent } from './add-park/add-park.component';
+import { TranslateModule , TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-
-
+export function HttpLoaderFactory(http: HttpClient) {
+  // tslint:disable-next-line:no-unused-expression
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -103,6 +107,13 @@ import { AddParkComponent } from './add-park/add-park.component';
     BrowserModule,
     Ng2SearchPipeModule,
     RatingModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
     SimpleNotificationsModule.forRoot(),
     TimepickerModule.forRoot(),
     BrowserAnimationsModule,
