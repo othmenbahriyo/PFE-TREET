@@ -39,7 +39,7 @@
         </li>
         <li class="nav-item">
           <select (change)="filterChanged($event.target.value)" class="form-control " [value]='fr' ([ngModel])="selected" style="height: 40px; width: 75px; background-color: #B6B1B1; text-align: center;" >
-            <option *ngFor="let lang of translate.getLangs()" value="{{lang}}"> {{lang}} </option>
+            <option *ngFor="let lang of translate.getLangs()" value="{{lang}}" > {{lang}} </option>
           </select>
         </li>
         

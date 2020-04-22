@@ -22,6 +22,8 @@ export class MapComponent implements OnInit {
   lista = {} as any ;
   a: string;
   user = localStorage.getItem('name');
+  image1 = 'assets/images/cap1.JPG';
+  image2 = 'assets/images/Capture.JPG';
 
 
   constructor(private auth: ReservationService, private router: Router,
@@ -104,7 +106,7 @@ saveCall() {
     });
   } else {
   if (!this.reserv.name || !this.reserv.Tpark || !this.reserv.dateE ||
-    !this.reserv.timeE || !this.reserv.dateS || !this.reserv.timeS   ) {
+    !this.reserv.timeE || !this.reserv.dateS || !this.reserv.timeS || this.timeRespect()   ) {
     this.service.error('ERROR', 'verifier vos champs et votre login' , {
       position: ['bottom', 'right'],
       timeOut: 5000,
@@ -184,6 +186,14 @@ premierPlaceVide() {
     return max.timeS ;
 }
 
+}
+
+timeRespect() {
+  if (this.reserv.timeE.getTime() > this.reserv.timeS.getTime()) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 

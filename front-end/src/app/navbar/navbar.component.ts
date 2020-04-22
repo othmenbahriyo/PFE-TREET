@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
   constructor(public auth: AuthService,  private router: Router, public dialod: MatDialog, public translate: TranslateService) {
-    translate.addLangs(['fr' , 'en']);
+    translate.addLangs(['fr' , 'en' , 'ar']);
     translate.setDefaultLang('fr');
 
    }

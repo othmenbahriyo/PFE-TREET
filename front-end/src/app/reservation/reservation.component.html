@@ -4,7 +4,7 @@
 <img src="http://trials.vevs.website/web-demo/car-parking-website/app/web/upload/medium/1920x400-137-1578941898.jpg" alt="" title="" data-id="137" class="hero-img hidden wc-image">
 
 <div class="container">
-    <h1 class="h1"><span class="wc-editable" data-pk="custom_68c1de49669a4eb915213084a137296a" data-type="text">our parking</span></h1>
+    <h1 class="h1"><span class="wc-editable" data-pk="custom_68c1de49669a4eb915213084a137296a" data-type="text">RESERVATION</span></h1>
     <div class="paragragh"><span class="wc-editable" data-pk="custom_ff93be33d81a3716cbb7bd43b11015ee" data-type="plaintext"></span></div>
 </div>
 </div>
@@ -22,7 +22,7 @@
             <div id="pjCpCalendarLocale" style="display: none;" data-months="January_February_March_April_May_June_July_August_September_October_November_December" data-days="Su_Mo_Tu_We_Th_Fr_Sa"></div>
             
             <div class="form-group">
-                <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">Location</span></label>
+                <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.location' | translate }}</span></label>
                     
                 <select name="location_id" id="location_id" class="form-control form-control-lg" [(ngModel)]="reserv.name" name="name" >
                     <option value=""> </option>
@@ -31,10 +31,10 @@
                                         <p>
                         <i class="glyphicon glyphicon-map-marker"></i>
                         
-                        <span class="wc-editable" data-pk="ws_cannot_find_location"  data-type="text">Can't find the location?</span> <a routerLink="pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text" routerLink="/pres">View Map</span></a>
+                        <span class="wc-editable" data-pk="ws_cannot_find_location"  data-type="text">{{'HOME.find' | translate }}}</span> <a routerLink="pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text" routerLink="/pres">{{'HOME.view' | translate }}</span></a>
                     </p>
                                     </div>
-                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">Type of Parking</span></label>
+                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.type' | translate }}</span></label>
                                     <select  name="location_id" id="location_id" class="form-control form-control-lg" [(ngModel)]="reserv.Tpark" name="Tpark">
                     
                                         <option value="normal_10$" class="form-control form-control-lg" >normal parking (10$/h)</option>
@@ -42,13 +42,13 @@
                                         <option value="Professional_25$" class="form-control form-control-lg">Professional parking (25$/h)</option>				
                                     </select>
                                 <div>
-                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">Matricule</span></label>
+                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Matricule' | translate }}</span></label>
                                     <input  class="form-control "  [(ngModel)]="reserv.matricule" name="matricule" > 
                                 </div>
             <div class="row">
                 <div class="col-lg-6 col-xs-12">
                     <div class="dateTimePick">
-                        <label><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">Entry date &amp; time</span></label>
+                        <label><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">{{'HOME.entre' | translate }}</span></label>
                             
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
@@ -82,7 +82,7 @@
     
                 <div class="col-lg-6 col-xs-12">
                     <div class="dateTimePick">
-                        <label><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">Exit date &amp; time</span></label>
+                        <label><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">{{'HOME.exit' | translate }}</span></label>
                             
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
@@ -119,7 +119,7 @@
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary" (click)="registerRes()" ><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action">Choose Your Space</span></button>
     
-                <p id="pjCpSearchErrorMsg" class="crError text-danger hidden">Exit date &amp; time must be greater than entry date &amp; time.</p>
+                <p id="pjCpSearchErrorMsg" class="crError text-danger hidden">{{'HOME.condition' | translate }}</p>
             </div>
         </form>		
 </div>
@@ -130,12 +130,12 @@
 <div class="footer-nav">
     <div class="container cms-e-section">
         <ul>
-            <li><a routerLink="/map">Start</a></li>
-            <li><a routerLink="/reserve">Reservations</a></li>
-            <li><a routerLink="/pres">Locations</a></li>
-            <li><a routerLink="/price">Price</a></li>
-            <li><a routerLink="/contact">Contact Us</a></li>
-    </ul>
+            <li><a routerLink="/map">{{'HOME.Start' | translate }}</a></li>
+            <li><a routerLink="/reserve">{{'HOME.Reservations' | translate }}</a></li>
+            <li><a routerLink="/pres">{{'HOME.Locations' | translate }}</a></li>
+            <li><a routerLink="/price">{{'HOME.Price' | translate }}</a></li>
+            <li><a routerLink="/contact"> {{'HOME.Contact' | translate }}</a></li>
+                            </ul>
     </div>
 </div>
 <div class="section">

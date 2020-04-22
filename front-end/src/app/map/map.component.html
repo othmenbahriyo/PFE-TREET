@@ -115,9 +115,9 @@
                      </div>
 					
 				<div class="form-group text-center">
-					<button type="submit"  (click)="saveCall()" class="btn btn-primary"><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action"  >Choose Your Space</span></button>
+					<button type="submit"  (click)="saveCall()" class="btn btn-primary"><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action"  >{{'HOME.choose' | translate }}</span></button>
 
-					<p id="pjCpSearchErrorMsg" class="crError text-danger hidden">{{'HOME.condition' | translate }}</p>
+					<p  *ngIf="timeRespect()" >{{'HOME.condition' | translate }}</p>
 				</div>
 			</form>
 		</div>			
@@ -125,6 +125,78 @@
 </div>
 </div>		</div>
 	</div>
+
+
+
+	<h3 style="text-align: center;margin-top: 40px;">A smart solution for everyone</h3>
+	<h4 style="text-align: center; margin-bottom: 20px;">SOLUTIONS -> </h4>
+	<div class="container"  >
+		<div style="width: 100%;">
+		  <div >
+		  </div>
+		  <div >
+			<ngb-carousel >
+			  <ng-template ngbSlide>
+				<div class="item" alt="Random first slide" >
+					<div class="row-fluid">
+						<div class="span4">
+							<span class="material-icons" style="font-size: 3.73em;">school</span>
+							<h4>Universities & education facilities</h4>
+							<h5><p>  Campuses always provide a unique challenge with regards to parking, as not only do they tend to occupy multiple car parks on a sprawling footprint, but they also need to cater for the different needs of students, staff and visitors.</p></h5>
+							
+						</div>
+						<div class="span4">
+							<span class="material-icons" style="font-size: 3.73em;">local_hospital</span>
+							<h4>Hospitals and medical centres</h4>
+							<p>Hospitals and medical centres need to provide a range of parking options, and without proper car park management, parking spaces can be severely underutilised.</p>
+							
+						</div>
+						<div class="span4">
+							<span class="material-icons" style="font-size: 3.73em;">local_convenience_store</span>
+							<h4>Supermarkets</h4>
+							<p>Smart Parking has an extensive track record working with supermarkets – both at the construction phase and as a retro-fit for current sites.</p>
+							
+						</div>
+						
+					</div><!--/row-fluid-->
+				</div>
+			  </ng-template>
+			  <ng-template ngbSlide>
+				<div class="item"  alt="Random second slide" >
+					<div class="row-fluid">
+						<div class="span3">
+							<span class="material-icons" style="font-size: 3.73em;">local_airport</span>
+							<h4>Airports</h4>
+							<p>Vehicle access to airports can turn into chaos if not properly managed, and Smart Parking can offer a single system that caters for a variety of parking and drop off options.</p>
+							
+						</div>
+						<div class="span3">
+							<span class="material-icons" style="font-size: 3.73em;">account_balance</span>
+							<h4>Councils & municipalities</h4>
+							<p>smart parking has extensive experience working with councils and municipalities across the globe most of which have a smart city initiative that includes a smarts parking system as an integrated componenet </p>
+							
+						</div>
+						<div class="span3">
+							<span class="material-icons" style="font-size: 3.73em;">store</span>
+							<h4>Parking operators</h4>
+							<p style=" size: 92px;">smart parking works closely to provide a working solution with parking operators who either own and manage a portfolio of car parks under their own brand or how manage a car park on their building's footprint </p>
+							
+						</div>
+						<div class="span3">
+							<span class="material-icons" style="font-size: 3.73em;">shopping_cart</span>
+							<h4>Shopping centres & retail</h4>
+							<p>In the competitive world of retail, parking is an essential service to get right as a positive parking experience can draw in more customers, and have a huge impact on footfall and store takings. </p>
+							
+						</div>
+					</div><!--/row-fluid-->
+				</div>
+			  </ng-template>
+			</ngb-carousel>
+				 <div >
+		  </div>
+		</div>
+	  </div>
+	</div> 
 	<div class="main">
 	<div class="section section-about" id="section-about">
 		<div class="section-head">
