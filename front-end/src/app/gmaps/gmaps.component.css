@@ -136,3 +136,7 @@ h3 {
   height: 516px;
   overflow-y: auto;
 }
+
+.form-control {
+  height: 40px;
+}

@@ -32,7 +32,10 @@
               "node_modules/igniteui-angular/styles/igniteui-angular.css",
               "node_modules/admin-lte/dist/css/adminlte.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/chart.js/dist/Chart.min.js"
+            ]
           },
           "configurations": {
             "production": {

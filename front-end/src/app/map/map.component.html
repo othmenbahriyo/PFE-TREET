@@ -1,267 +1,262 @@
-
-
 <body class=""  data-action="pjActionIndex" data-page="home" data-editor="http://trials.vevs.website/web-demo/car-parking-website/index.php?controller=pjCmsEditor&amp;action=pjActionLoadScript&amp;web_page_id=1&amp;locale_id=4&amp;fields=front_fields&amp;template=template_1">
-		<div class="wrapper">
-        	<div class="hero-section cms-e-section" style="background-image: url(&quot;http://trials.vevs.website/web-demo/car-parking-website/app/web/upload/medium/7-431-1578941898.jpg&quot;);">
-		
-		
-		<div class="container" >
-			<h3  style="text-transform: uppercase;" ><span  data-type="text"> {{'HOME.welcome' | translate }} {{user}}   </span></h3>
-			
-			<h1 class="h1"><span class="wc-editable" data-pk="ws_home_slide_title_1" data-type="text">{{'HOME.Book' | translate }}</span></h1>
-
-			<div class="hero-text-desc"><span class="wc-editable" data-pk="ws_home_slide_desc_1" data-type="plaintext">{{'HOME.location' | translate }}</span></div>
-			
-            <div id="pjCpContainer"><div class="row">
-                <div class="col-lg-10 col-lg-offset-1 col-xs-12">
-                    <div class="form cms-e-section" >
-                        <form [formGroup]="form" id="pjCpSearchForm" action="#" method="post" class="pjCpSearchForm" novalidate="novalidate">
-                            <div id="pjCpCalendarLocale" style="display: none;" data-months="January_February_March_April_May_June_July_August_September_October_November_December" data-days="Su_Mo_Tu_We_Th_Fr_Sa"></div>
-                            
-                            <div class="form-group">
-                                <label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Location' | translate }}</span></label>
-                                    
-                                <select name="location_id" style="height:40px;" id="location_id" class="form-control" [(ngModel)]="reserv.name" name="name" formControlName="name" >
-                                    <option value=""> </option>
-                                    <option *ngFor="let m of listParking"  [ngValue]="m.name">{{m.name}}</option>				
-								</select>
-								
-                                                        <p>
-                                        <i class="glyphicon glyphicon-map-marker"></i>
-                                        
-                                        <span class="wc-editable" data-pk="ws_cannot_find_location" data-type="text">{{'HOME.find' | translate }}</span> <a routerLink="/pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text">{{'HOME.view' | translate }}</span></a>
-									</p>
-									<div>
-										<label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Matricule' | translate }}</span></label>
-										<input  class="form-control " style="height:40px;"  [(ngModel)]="reserv.matricule" formControlName="matricule" placeholder="198 TUN 1254" name="matricule" > 
-									</div>
-                                                    </div>
-                                                    <label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.type' | translate }}</span></label>
-                                                    <select  name="location_id" id="location_id" class="form-control " style="height:40px;" [(ngModel)]="reserv.Tpark" name="Tpark" formControlName="Tpark">
-                                    
-                                                        <option value="normal_10$"  >normal parking (10$/h)</option>
-                                                        <option value="covered_18$">covered parking (18$/h)</option>
-                                                        <option value="Professional_25$">Professional parking (25$/h)</option>				
-                                                    </select>
-            
-                            <div class="row">
-                                <div class="col-lg-6 col-xs-12">
-                                    <div class="dateTimePick">
-                                        <label style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">{{'HOME.entre' | translate }}</span></label>
-                                            
-                                        <div class="row" >
-                                            <div class="col-sm-6 col-xs-12" style="margin-top: 25px;">
-                                                <div class="form-group">
-                                                    <div class="input-group datePick datePickFrom">
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                        </span>
-                                
-														<input type="text" id="dateOfBirth" name="dateOfBirth"  class="form-control" type="date" [(ngModel)]="reserv.dateE" name="dateE" formControlName="dateE"  >
-														
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                            
-                                            <div class="col-sm-6 col-xs-12" style=" display: flex;">
-                                                <div class="form-group">
-                                                    <div class="input-group timePick timePickFrom" data-rel="from">
-														<timepicker  [(ngModel)]="reserv.timeE" name="timeE" formControlName="timeE" ></timepicker>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-											
-                                            <input type="hidden" id="cp_hour_from" name="hour_from" value="9">
-                                            <input type="hidden" id="cp_minutes_from" name="minutes_from" value="0">
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <div class="col-lg-6 col-xs-12">
-                                    <div class="dateTimePick">
-                                        <label  style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">{{'HOME.exit' | translate }}</span></label>
-                                            
-                                        <div class="row">
-                                            <div class="col-sm-6 col-xs-12"  style="margin-top: 25px;">
-                                                <div class="form-group">
-                                                    <div class="input-group datePick datePickTo">
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                        </span>
-                                
-														<input type="text" id="dateOfBirth" [(ngModel)]="reserv.dateS" name="dateS"   class="form-control" formControlName="dateS" type="date"  >
-														
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                
-                                            <div class="col-sm-6 col-xs-12">
-                                                <div class="form-group">
-                                                    <div class="input-group timePick timePickTo" data-rel="to">
-														
-														<timepicker  [(ngModel)]="reserv.timeS" name="timeS" formControlName="timeS" ></timepicker>
+	<div class="wrapper">
+		<div class="hero-section cms-e-section" style="background-image: url(&quot;http://trials.vevs.website/web-demo/car-parking-website/app/web/upload/medium/3-430-1587640207.jpg&quot;);">
 	
-                                                    </div>
-                                                </div>
-											</div>
-											
-										
-                                            <input type="hidden" id="cp_hour_to" name="hour_to" value="9">
-                                            <input type="hidden" id="cp_minutes_to" name="minutes_to" value="0" >
-                                        </div>
-                                    </div> 
-                                </div>
-                     </div>
-					
-				<div class="form-group text-center">
-					<button type="submit"  (click)="saveCall()" class="btn btn-primary"><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action"  >{{'HOME.choose' | translate }}</span></button>
+	
+	<div class="container" >
+		<h3  style="text-transform: uppercase;" ><span  data-type="text"> {{'HOME.welcome' | translate }} {{user}}   </span></h3>
+		
+		<h1 class="h1"><span class="wc-editable" data-pk="ws_home_slide_title_1" data-type="text">{{'HOME.Book' | translate }}</span></h1>
 
-					<p  *ngIf="timeRespect()" >{{'HOME.condition' | translate }}</p>
-				</div>
-			</form>
-		</div>			
-	</div>
+		<div class="hero-text-desc"><span class="wc-editable" data-pk="ws_home_slide_desc_1" data-type="plaintext">{{'HOME.location' | translate }}</span></div>
+		
+		<div id="pjCpContainer"><div class="row">
+			<div class="col-lg-10 col-lg-offset-1 col-xs-12">
+				<div class="form cms-e-section" >
+					<form [formGroup]="form" id="pjCpSearchForm" action="#" method="post" class="pjCpSearchForm" novalidate="novalidate">
+						<div id="pjCpCalendarLocale" style="display: none;" data-months="January_February_March_April_May_June_July_August_September_October_November_December" data-days="Su_Mo_Tu_We_Th_Fr_Sa"></div>
+						
+						<div class="form-group">
+							<label for="location_id" class="formLabel"><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Location' | translate }}</span></label>
+								
+							<select name="location_id" style="height:40px;" id="location_id" class="form-control" [(ngModel)]="reserv.name" name="name" formControlName="name" >
+								<option value=""> </option>
+								<option *ngFor="let m of listParking"  [ngValue]="m.name">{{m.name}}</option>				
+							</select>
+							
+													<p>
+									<i class="glyphicon glyphicon-map-marker"></i>
+									
+									<span class="wc-editable" data-pk="ws_cannot_find_location" data-type="text">{{'HOME.find' | translate }}</span> <a routerLink="/pres"><span class="wc-editable" data-pk="ws_view_map" data-type="text">{{'HOME.view' | translate }}</span></a>
+								</p>
+								<div>
+									<label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.Matricule' | translate }}</span></label>
+									<input  class="form-control " style="height:40px;"  [(ngModel)]="reserv.matricule" formControlName="matricule" placeholder="198 TUN 1254" name="matricule" > 
+								</div>
+												</div>
+												<label for="location_id" class="formLabel" ><span class="wc-editable" data-pk="ws_location" data-type="text">{{'HOME.type' | translate }}</span></label>
+												<select  name="location_id" id="location_id" class="form-control " style="height:40px;" [(ngModel)]="reserv.Tpark" name="Tpark" formControlName="Tpark">
+								
+													<option value="normal_10$"  >normal parking (10$/h)</option>
+													<option value="covered_18$">covered parking (18$/h)</option>
+													<option value="Professional_25$">Professional parking (25$/h)</option>				
+												</select>
+		
+						<div class="row">
+							<div class="col-lg-6 col-xs-12">
+								<div >
+									<label style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_entry_date_time" data-type="text">{{'HOME.entre' | translate }}</span></label>
+										
+									<div class="row" >
+										<div class="col-sm-6 col-xs-12" style="margin-top: 25px;">
+											<div class="form-group">
+												<div class="input-group datePick datePickFrom">
+													<span class="input-group-addon">
+														<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+													</span>
+							
+													<input type="text" id="dateOfBirth" name="dateOfBirth"  class="form-control" type="date" [(ngModel)]="reserv.dateE" name="dateE" formControlName="dateE"  >
+													
+												</div>
+											</div>
+										</div>
+														
+										<div class="col-sm-6 col-xs-12" >
+											<div class="form-group">
+												<div class="input-group timePick timePickFrom" data-rel="from">
+													<timepicker  [(ngModel)]="reserv.timeE"  name="timeE" formControlName="timeE" style="height: 40px !important;" ></timepicker>
+													
+												</div>
+											</div>
+										</div>
+					
+										
+									</div>
+								</div>
+							</div>
+		
+							<div class="col-lg-6 col-xs-12">
+								<div class="dateTimePick">
+									<label  style="margin-top: 25px;"><span class="wc-editable" data-pk="ws_exit_date_time" data-type="text">{{'HOME.exit' | translate }}</span></label>
+										
+									<div class="row">
+										<div class="col-sm-6 col-xs-12"  style="margin-top: 25px;">
+											<div class="form-group">
+												<div class="input-group datePick datePickTo">
+													<span class="input-group-addon">
+														<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+													</span>
+							
+													<input type="text" id="dateOfBirth" [(ngModel)]="reserv.dateS" name="dateS"   class="form-control" formControlName="dateS" type="date"  >
+													
+												</div>
+											</div>
+										</div>
+															
+										<div class="col-sm-6 col-xs-12">
+											<div class="form-group">
+												<div class="input-group timePick timePickTo" data-rel="to">
+													
+													<timepicker  [(ngModel)]="reserv.timeS" name="timeS" formControlName="timeS" ></timepicker>
+
+												</div>
+											</div>
+										</div>
+										
+										
+									
+									</div>
+								</div> 
+							</div>
+				 </div>
+				
+			<div class="form-group text-center">
+				<button type="submit"  (click)="saveCall()" class="btn btn-primary"><span class="wc-editable" data-pk="ws_btn_choose_your_space" data-type="action"  >{{'HOME.choose' | translate }}</span></button>
+
+				<p  *ngIf="timeRespect()" >{{'HOME.condition' | translate }}</p>
+			</div>
+		</form>
+	</div>			
+</div>
 </div>
 </div>		</div>
-	</div>
+</div>
 
 
 
-	<h3 style="text-align: center;margin-top: 40px;">A smart solution for everyone</h3>
-	<h4 style="text-align: center; margin-bottom: 20px;">SOLUTIONS -> </h4>
-	<div class="container"  >
-		<div style="width: 100%;">
-		  <div >
-		  </div>
-		  <div >
-			<ngb-carousel >
-			  <ng-template ngbSlide>
-				<div class="item" alt="Random first slide" >
-					<div class="row-fluid">
-						<div class="span4">
-							<span class="material-icons" style="font-size: 3.73em;">school</span>
-							<h4>Universities & education facilities</h4>
-							<h5><p>  Campuses always provide a unique challenge with regards to parking, as not only do they tend to occupy multiple car parks on a sprawling footprint, but they also need to cater for the different needs of students, staff and visitors.</p></h5>
-							
-						</div>
-						<div class="span4">
-							<span class="material-icons" style="font-size: 3.73em;">local_hospital</span>
-							<h4>Hospitals and medical centres</h4>
-							<p>Hospitals and medical centres need to provide a range of parking options, and without proper car park management, parking spaces can be severely underutilised.</p>
-							
-						</div>
-						<div class="span4">
-							<span class="material-icons" style="font-size: 3.73em;">local_convenience_store</span>
-							<h4>Supermarkets</h4>
-							<p>Smart Parking has an extensive track record working with supermarkets – both at the construction phase and as a retro-fit for current sites.</p>
-							
-						</div>
-						
-					</div><!--/row-fluid-->
-				</div>
-			  </ng-template>
-			  <ng-template ngbSlide>
-				<div class="item"  alt="Random second slide" >
-					<div class="row-fluid">
-						<div class="span3">
-							<span class="material-icons" style="font-size: 3.73em;">local_airport</span>
-							<h4>Airports</h4>
-							<p>Vehicle access to airports can turn into chaos if not properly managed, and Smart Parking can offer a single system that caters for a variety of parking and drop off options.</p>
-							
-						</div>
-						<div class="span3">
-							<span class="material-icons" style="font-size: 3.73em;">account_balance</span>
-							<h4>Councils & municipalities</h4>
-							<p>smart parking has extensive experience working with councils and municipalities across the globe most of which have a smart city initiative that includes a smarts parking system as an integrated componenet </p>
-							
-						</div>
-						<div class="span3">
-							<span class="material-icons" style="font-size: 3.73em;">store</span>
-							<h4>Parking operators</h4>
-							<p style=" size: 92px;">smart parking works closely to provide a working solution with parking operators who either own and manage a portfolio of car parks under their own brand or how manage a car park on their building's footprint </p>
-							
-						</div>
-						<div class="span3">
-							<span class="material-icons" style="font-size: 3.73em;">shopping_cart</span>
-							<h4>Shopping centres & retail</h4>
-							<p>In the competitive world of retail, parking is an essential service to get right as a positive parking experience can draw in more customers, and have a huge impact on footfall and store takings. </p>
-							
-						</div>
-					</div><!--/row-fluid-->
-				</div>
-			  </ng-template>
-			</ngb-carousel>
-				 <div >
-		  </div>
-		</div>
+<h3 style="text-align: center;margin-top: 40px;">{{'HOME.smart' | translate }}</h3>
+<h4 style="text-align: center; margin-bottom: 20px;">{{'HOME.SOLUTIONS' | translate }} </h4>
+<div class="container"  >
+	<div style="width: 100%;">
+	  <div >
 	  </div>
-	</div> 
-	<div class="main">
-	<div class="section section-about" id="section-about">
-		<div class="section-head">
-			<div class="container cms-e-section">
-				<h2 class="h2"><span class="wc-editable" data-pk="ws_about_me_title" data-type="text"  >{{'HOME.about' | translate }}</span></h2>
-
-	
-				<div class="row">
-					<div class="col-lg-10 col-lg-offset-1">
-						<div class="paragragh"><span class="wc-editable" data-pk="ws_about_me_desc" data-type="plaintext"> {{'HOME.def' | translate }}</span></div>
+	  <div >
+		<ngb-carousel >
+		  <ng-template ngbSlide>
+			<div class="item" alt="Random first slide" >
+				<div class="row-fluid">
+					<div class="span4">
+						<span class="material-icons" style="font-size: 3.73em;">school</span>
+						<h4>{{'HOME.uni' | translate }}</h4>
+						<h5><p> {{'HOME.defuni' | translate }}  </p></h5>
+						
 					</div>
+					<div class="span4">
+						<span class="material-icons" style="font-size: 3.73em;">local_hospital</span>
+						<h4>{{'HOME.hos' | translate }}</h4>
+						<p>{{'HOME.defhos' | translate }}</p>
+						
+					</div>
+					<div class="span4">
+						<span class="material-icons" style="font-size: 3.73em;">local_convenience_store</span>
+						<h4>{{'HOME.Supermarkets' | translate }}</h4>
+						<p>{{'HOME.defSupermarkets' | translate }}</p>
+						
+					</div>
+					
+				</div><!--/row-fluid-->
+			</div>
+		  </ng-template>
+		  <ng-template ngbSlide>
+			<div class="item"  alt="Random second slide" >
+				<div class="row-fluid">
+					<div class="span3">
+						<span class="material-icons" style="font-size: 3.73em;">local_airport</span>
+						<h4>{{'HOME.Airports' | translate }}</h4>
+						<p>{{'HOME.defAirports' | translate }}</p>
+						
+					</div>
+					<div class="span3">
+						<span class="material-icons" style="font-size: 3.73em;">account_balance</span>
+						<h4>{{'HOME.Councils' | translate }}</h4>
+						<p>{{'HOME.defCouncils' | translate }}</p>
+						
+					</div>
+					<div class="span3">
+						<span class="material-icons" style="font-size: 3.73em;">store</span>
+						<h4>{{'HOME.operators' | translate }}</h4>
+						<p style=" size: 92px;">{{'HOME.defoperators' | translate }}</p>
+						
+					</div>
+					<div class="span3">
+						<span class="material-icons" style="font-size: 3.73em;">shopping_cart</span>
+						<h4>{{'HOME.Shopping' | translate }}</h4>
+						<p>{{'HOME.defShopping' | translate }}</p>
+						
+					</div>
+				</div><!--/row-fluid-->
+			</div>
+		  </ng-template>
+		</ngb-carousel>
+			 <div >
+	  </div>
+	</div>
+  </div>
+</div> 
+<div class="main">
+<div class="section section-about" id="section-about">
+	<div class="section-head">
+		<div class="container cms-e-section">
+			<h2 class="h2"><span class="wc-editable" data-pk="ws_about_me_title" data-type="text"  >{{'HOME.about' | translate }}</span></h2>
+
+
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1">
+					<div class="paragragh"><span class="wc-editable" data-pk="ws_about_me_desc" data-type="plaintext"> {{'HOME.def' | translate }}</span></div>
 				</div>
 			</div>
 		</div>
-	
 	</div>
-		<div class="section section-services" id="section-services">
-		<div class="container">
-			
-			
+
+</div>
+	<div class="section section-services" id="section-services">
+	<div class="container">
 		
-		</div>
+		
+	
 	</div>
-		</div>  
-		<footer class="footer" id="section-contact">
-	<div class="footer-nav">
-		<div class="container cms-e-section">
-			<ul>
-				<li><a routerLink="/map">{{'HOME.Start' | translate }}</a></li>
-				<li><a routerLink="/reserve">{{'HOME.Reservations' | translate }}</a></li>
-				<li><a routerLink="/pres">{{'HOME.Locations' | translate }}</a></li>
-				<li><a routerLink="/price">{{'HOME.Price' | translate }}</a></li>
-				<li><a routerLink="/contact"> {{'HOME.Contact' | translate }}</a></li>
-								</ul>
-		</div>
+</div>
+	</div>  
+	<footer class="footer" id="section-contact">
+<div class="footer-nav">
+	<div class="container cms-e-section">
+		<ul>
+			<li><a routerLink="/map">{{'HOME.Start' | translate }}</a></li>
+			<li><a routerLink="/reserve">{{'HOME.Reservations' | translate }}</a></li>
+			<li><a routerLink="/pres">{{'HOME.Locations' | translate }}</a></li>
+			<li><a routerLink="/price">{{'HOME.Price' | translate }}</a></li>
+			<li><a routerLink="/contact"> {{'HOME.Contact' | translate }}</a></li>
+							</ul>
 	</div>
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-xs-12">
-					<p class="copyright cms-e-section" data-quick="" data-quick2="company" data-title-quick2="Company Details">© 2020 <a href="./"><span class="wc-editable" data-pk="ws_car_name" data-type="text">enetcom</span></a> | <span class="wc-editable" data-pk="ws_rights_reserved" data-type="text">All rights reserved</span></p>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-xs-12">
+				<p class="copyright cms-e-section" data-quick="" data-quick2="company" data-title-quick2="Company Details">© 2020 <a href="./"><span class="wc-editable" data-pk="ws_car_name" data-type="text">enetcom</span></a> | <span class="wc-editable" data-pk="ws_rights_reserved" data-type="text">All rights reserved</span></p>
 
-					<p class="credits credits-secondary"><a href="https://www.3s.com.tn/en/" target="_blank" rel="noopener">Treetronix's parking</a> </p>				</div>
-									<div class="col-sm-6 col-xs-12 text-right">
-						<ul class="socials socials-secondary cms-e-section" data-quick2="social" data-title-quick2="Social Media Profiles">
-							<li><a href="https://www.facebook.com/treetronix/?ref=br_rs" target="_blank" class="ico" rel="noopener"><i class="fa fa-facebook"></i></a></li><li><a href="https://twitter.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-twitter"></i></a></li><li><a href="https://www.linkedin.com/company/treetronix/" target="_blank" class="ico" rel="noopener"><i class="fa fa-linkedin"></i></a></li><li><a href="https://www.instagram.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-instagram"></i></a></li><li><a href="https://www.pinterest.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-pinterest"></i></a></li>						</ul>
-					</div>
-								</div>
-		</div>
+				<p class="credits credits-secondary"><a href="https://www.3s.com.tn/en/" target="_blank" rel="noopener">Treetronix's parking</a> </p>				</div>
+								<div class="col-sm-6 col-xs-12 text-right">
+					<ul class="socials socials-secondary cms-e-section" data-quick2="social" data-title-quick2="Social Media Profiles">
+						<li><a href="https://www.facebook.com/treetronix/?ref=br_rs" target="_blank" class="ico" rel="noopener"><i class="fa fa-facebook"></i></a></li><li><a href="https://twitter.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-twitter"></i></a></li><li><a href="https://www.linkedin.com/company/treetronix/" target="_blank" class="ico" rel="noopener"><i class="fa fa-linkedin"></i></a></li><li><a href="https://www.instagram.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-instagram"></i></a></li><li><a href="https://www.pinterest.com" target="_blank" class="ico" rel="noopener"><i class="fa fa-pinterest"></i></a></li>						</ul>
+				</div>
+							</div>
 	</div>
+</div>
 </footer>	
-	</div>
-	
-	
+</div>
+
+
 <div>
-		<link rel="stylesheet" type="text/css" href="http://trials.vevs.website/web-demo/car-parking-website/index.php?controller=pjFront&amp;action=pjActionLoadCss&amp;a=pjActionIndex&amp;widget=on&amp;script_id=8&amp;demo=1&amp;template=template_1&amp;theme=theme1&amp;font=Lato&amp;hmac=526ccdcf6f2d84d2748639418c6f7953" id="deferred-sheet">
-		<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-	</div><div class="pj-signup-overlay"></div><div class="pj-signup-dialog"></div><div class="pj-signup-trigger"></div>
-	<div role="button" tabindex="-1" id="scroll-top" class="topbutton btn-hide" aria-label="Top"><span class="fa fa-angle-double-up"></span></div></body>
-	
+	<link rel="stylesheet" type="text/css" href="http://trials.vevs.website/web-demo/car-parking-website/index.php?controller=pjFront&amp;action=pjActionLoadCss&amp;a=pjActionIndex&amp;widget=on&amp;script_id=8&amp;demo=1&amp;template=template_1&amp;theme=theme1&amp;font=Lato&amp;hmac=526ccdcf6f2d84d2748639418c6f7953" id="deferred-sheet">
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+</div><div class="pj-signup-overlay"></div><div class="pj-signup-dialog"></div><div class="pj-signup-trigger"></div>
+<div role="button" tabindex="-1" id="scroll-top" class="topbutton btn-hide" aria-label="Top"><span class="fa fa-angle-double-up"></span></div></body>
 
 
 
 
 
 
-	<simple-notifications></simple-notifications>
-	
+
+<simple-notifications></simple-notifications>

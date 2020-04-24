@@ -68,7 +68,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { AddParkComponent } from './add-park/add-park.component';
 import { TranslateModule , TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
-
+import { ChartModule } from 'angular2-chartjs';
 export function HttpLoaderFactory(http: HttpClient) {
   // tslint:disable-next-line:no-unused-expression
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -122,6 +122,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgTempusdominusBootstrapModule,
     Ng2FlatpickrModule,
     MatInputModule,
+    ChartModule,
     HttpClientModule,
     NgxPayPalModule,
     AppRoutingModule,

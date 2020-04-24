@@ -6,3 +6,6 @@ li {
 a {
     margin-top: 10px;
 }
+.navbar {
+    margin-bottom: 0 !important;
+}

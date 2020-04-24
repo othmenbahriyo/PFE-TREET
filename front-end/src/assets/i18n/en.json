@@ -31,6 +31,22 @@
         "Locations": "Rentals",
         "Price": "Price",
         "Contact": "Contact Us",
-        "choose": "Choose Your Space"
+        "choose": "Choose Your Space",
+        "smart": "A smart solution for everyone",
+        "SOLUTIONS": "SOLUTIONS ->",
+        "uni": "Universities & education facilities",
+        "defuni": "Campuses always provide a unique challenge with regards to parking, as not only do they tend to occupy multiple car parks on a sprawling footprint, but they also need to cater for the different needs of students, staff and visitors.",
+        "hos":"Hospitals and medical centres",
+        "defhos": "Hospitals and medical centres need to provide a range of parking options, and without proper car park management, parking spaces can be severely underutilised.",
+        "Airports": "Airports",
+        "defAirports": "Vehicle access to airports can turn into chaos if not properly managed, and Smart Parking can offer a single system that caters for a variety of parking and drop off options.",
+        "Councils":"Councils & municipalities",
+        "defCouncils": "smart parking has extensive experience working with councils and municipalities across the globe most of which have a smart city initiative that includes a smarts parking system as an integrated componenet .",
+        "operators": "Parking operators",
+        "defoperators": "smart parking works closely to provide a working solution with parking operators who either own and manage a portfolio of car parks under their own brand or how manage a car park on their building's footprint .",
+        "Shopping": "Shopping centres & retail",
+        "defShopping": "In the competitive world of retail, parking is an essential service to get right as a positive parking experience can draw in more customers, and have a huge impact on footfall and store takings. ",
+        "Supermarkets": "Supermarkets",
+        "defSupermarkets": "Smart Parking has an extensive track record working with supermarkets – both at the construction phase and as a retro-fit for current sites."
     }
 }

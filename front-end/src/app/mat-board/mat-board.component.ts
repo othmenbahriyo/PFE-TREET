@@ -3,6 +3,10 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ChartDataSets, ChartOptions, ChartType , RadialChartOptions } from 'chart.js';
 import { Color ,  SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { KafkaService } from '../shared/kafka.service';
+import * as Chart from 'chart.js';
+import { ParkService } from '../shared/park.service';
+import { Router } from '@angular/router';
+import { ReservationService } from '../shared/reservation.service';
 
 
 @Component({
@@ -10,86 +14,132 @@ import { KafkaService } from '../shared/kafka.service';
   templateUrl: './mat-board.component.html',
   styleUrls: ['./mat-board.component.css']
 })
-export class MatBoardComponent implements OnInit, OnDestroy {
-  messages = '' ;
-  connection;
-  message = this.messages.split(' ').map(Number);
-  // tslint:disable-next-line:ban-types
-  options: object;
-  @ViewChild('chartVar') refObj: any;
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  public pieChartLabels: Label[] = [['nb p v'], ['nb p p'], '[nb p p c]', ['nb p p p'], 'nb p p n' ];
-  public pieChartData: SingleDataSet = [10, 20, 20, 12, 17, 21];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
-  public radarChartOptions: RadialChartOptions = {
-    responsive: true,
-  };
-  public radarChartLabels: Label[] = ['Punctuality', 'Communication', 'Problem Solving',
-    'Team Player', 'Coding', 'Technical Knowledge', 'Meeting Deadlines'];
+export class MatBoardComponent implements OnInit {
+  marker = {} as any ;
+  list = {} as any;
+  times =  new Date();
+  lun = 0 ;
+  mar = 0 ;
+  mer = 0 ;
+  jeu = 0 ;
+  ven = 0 ;
+  sam = 0 ;
+  dem = 0  ;
+  d = 0;
+  year = {jun: 0 , fev: 0 , mar: 0 , avr: 0 , mai: 0 , jon: 0 , jui: 0 , out: 0 , sep: 0 , oct: 0 , nouv: 0 , dec: 0};
 
-  public radarChartData: ChartDataSets[] = [
-    { data: [0, 1, 2, 3, 4, 5, 6], label: 'Employee Skill Analysis' }
-  ];
-  public radarChartType: ChartType = 'radar';
+  constructor(private auth: ParkService, private router: Router, private auths: ReservationService) { }
 
+  ngOnInit(): void {
 
+    this.auth.getListPark().subscribe((res) => {
+      this.marker = res;
+    });
+    this.auths.getListReservation().subscribe(res => {
+      this.list = res ;
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0 ; i < this.list.length ; i++) {
+        this.list[i].timeS = new Date(Number(Date.parse(this.list[i].timeS)));
+        this.list[i].timeE = new Date(Number(Date.parse(this.list[i].timeE)));
+        console.log('ddd' , this.list[i].timeE.getMonth());
+        switch (this.list[i].timeE.getDay()  ) {
+          case 1 : {
+            this.lun ++;
+            break;
+          }
+          case 2 : {
+            this.mar ++;
+            break;
+          }
+          case 3 : {
+            this.mer ++;
+            break;
+          }
+          case 4   : {
+            this.jeu ++;
+            break;
+          }
+          case 5 : {
+            this.ven ++;
+            break;
+          }
+          case 6 : {
+            this.sam ++;
+            break;
+          }
+          case 0 : {
+            this.dem ++;
+            break;
+          }
+        }
+        switch (this.list[i].timeE.getMonth() ) {
+          case 0 : {
+            this.year.jun ++;
+            break;
+          }
+          case 1 : {
+            this.year.fev ++;
+            break;
+          }
+          case 2 : {
+            this.year.mar ++;
+            break;
+          }
+          case 3   : {
+            this.year.avr ++;
+            this.lun ++;
+            break;
+          }
+          case 4 : {
+            this.year.mai ++;
+            break;
+          }
+          case 5 : {
+            this.year.jon ++;
+            break;
+          }
+          case 6 : {
+            this.year.jui ++;
+            break;
+          }
+          case 7 : {
+            this.year.out ++;
+            break;
+          }
+          case 8 : {
+            this.year.sep ++;
+            break;
+          }
+          case 9: {
+            this.year.oct ++;
+            break;
+          }
+          case 10 : {
+            this.year.nouv ++;
+            break;
+          }
+          case 11 : {
+            this.year.dec ++;
+            break;
+          }
 
-  LineChart = [];
-  lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'nb de voiture/moi' },
-  ];
-
-  lineChartLabels: Label[] = this.messages.split(' ');
-
-  lineChartOptions = {
-    responsive: true,
-  };
-
-  lineChartColors: Color[] = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
-    },
-  ];
-
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType: ChartType  = 'line';
-
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  barChartLabels: Label[] = ['lundi', 'mardi', 'merc', 'jeudi', 'vend', 'samedi',
-   'dim', 'lundi', 'mardi', 'merc', 'jeudi', 'vend'];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-
-  barChartData: ChartDataSets[] = [
-    { data: [5 , 6 , 45 , 4 , 8] , label: 'nb voiture / jours' }
-  ];
-  constructor(private breakpointObserver: BreakpointObserver, private chatService: KafkaService) {
-    monkeyPatchChartJsTooltip();
-    monkeyPatchChartJsLegend();
-  }
-
-
-  ngOnInit() {
-    this.chatService.getromKaf(40).subscribe( res => {
-      this.messages = res;
-      console.log(this.messages);
-      console.log(this.messages.split(' ').map(Number));
-    },
-    error => {
-      console.log(error);
+        }
     }
-    );
+
+    });
+
   }
-  ngOnDestroy() {
+
+  getNbCarsDay() {
+     // tslint:disable-next-line:prefer-for-of
+     for (let i = 0 ; i < this.list.length ; i++) {
+      this.list[i].timeS = new Date(Number(Date.parse(this.list[i].timeS)));
+      this.list[i].timeE = new Date(Number(Date.parse(this.list[i].timeE)));
+      this.d += this.list[i].price;
+      return this.d;
+
   }
+}
+
 
 }

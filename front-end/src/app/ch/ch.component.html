@@ -24,9 +24,8 @@
                 <div style="align-items: center;" >
                     <label for="roomInput">Choose room</label>
                     <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
-                        <option value="Lobby">admin1</option>
-                        <option value="Hall">admin2</option>
-                        <option value="Deluxe">admin3</option>
+                      <option></option>
+                      <option class="form-control form-control-lg" *ngFor="let m of marker"  [ngValue]="m.name">{{m.name}}</option>
                     </select>
                 </div>
                 <div style="margin-top:19px;" class="pull-right" style="align-items: center; justify-content: center;"> 

@@ -34,6 +34,7 @@
     "@types/socket.io": "^2.1.4",
     "admin-lte": "^3.0.2",
     "angular-star-rating": "^2.0.4",
+    "angular2-chartjs": "^0.5.1",
     "angular2-highcharts": "^0.5.5",
     "angular2-notifications": "^3.0.0",
     "axios": "^0.19.2",

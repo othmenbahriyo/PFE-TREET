@@ -31,6 +31,22 @@
         "Locations": "Locations",
         "Price": "Prix",
         "Contact": "NOUS CONTACTER",
-        "choose": "Choisissez votre espace"
+        "choose": "Choisissez votre espace",
+        "smart": "Une solution intelligente pour tous",
+        "SOLUTIONS": "SOLUTIONS ->",
+        "uni": "Universités et établissements d'enseignement",
+        "defuni": "Les campus représentent toujours un défi unique en ce qui concerne le stationnement, car non seulement ils ont tendance à occuper plusieurs parkings sur une superficie étendue, mais ils doivent également répondre aux différents besoins des étudiants, du personnel et des visiteurs.",
+        "hos":"Hôpitaux et centres médicaux",
+        "defhos": "Les hôpitaux et les centres médicaux doivent fournir une gamme d'options de stationnement, et sans une gestion appropriée du parking, les places de stationnement peuvent être gravement sous-utilisées.",
+        "Airports": "Les aéroports",
+        "defAirports": "L'accès des véhicules aux aéroports peut se transformer en chaos s'il n'est pas correctement géré, et Smart Parking peut offrir un système unique qui répond à une variété d'options de stationnement et de restitution.",
+        "Councils":"Conseils et municipalités",
+        "defCouncils": "Le stationnement intelligent possède une vaste expérience de travail avec les conseils et les municipalités du monde entier, dont la plupart ont une initiative de ville intelligente qui comprend un système de stationnement intelligent en tant que composant intégré.",
+        "operators": "Exploitants de stationnement",
+        "defoperators": "le stationnement intelligent travaille en étroite collaboration pour fournir une solution de travail aux opérateurs de stationnement qui possèdent et gèrent un portefeuille de parkings sous leur propre marque ou comment gérer un parking sur l'empreinte de leur immeuble.",
+        "Shopping": "Centres commerciaux et commerce de détail",
+        "defShopping": "Dans le monde concurrentiel de la vente au détail, le stationnement est un service essentiel pour réussir, car une expérience de stationnement positive peut attirer plus de clients et avoir un impact énorme sur la fréquentation et les recettes des magasins. ",
+        "Supermarkets": "Supermarchés",
+        "defSupermarkets": "Smart Parking a une longue expérience de travail avec les supermarchés - à la fois en phase de construction et en tant que réaménagement pour les sites actuels."
     }
 }
